@@ -5,8 +5,8 @@ self.addEventListener('install', (ev) => {
     caches.open('v2').then((cache) => {
       return cache.addAll([
         req,
-        '/app.js',
-        '/',
+        '/sw/app.js',
+        '/sw/index.html',
       ])
     })
   )
