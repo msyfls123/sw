@@ -1,0 +1,49 @@
+{
+  "name": "sw",
+  "version": "1.0.0",
+  "description": "service-worker demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts",
+    "compile": "ts-node -P ./tsconfig.json ./script/compile.ts",
+    "publish": "npm run compile && git checkout gh-pages && git add ./dist && git commit -m 'update page' && git push && git checkout -"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msyfls123/sw.git"
+  },
+  "author": "msyfls123",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msyfls123/sw/issues"
+  },
+  "homepage": "https://github.com/msyfls123/sw#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/html-webpack-plugin": "^3.2.3",
+    "@types/webpack": "^4.41.21",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "html-webpack-plugin": "^4.3.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "workbox-precaching": "^5.1.3",
+    "workbox-webpack-plugin": "^5.1.3"
+  },
+  "dependencies": {
+    "ts-node": "^9.0.0"
+  }
+}

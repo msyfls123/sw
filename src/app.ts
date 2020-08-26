@@ -1,6 +1,6 @@
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw/sw.js', { scope: '/sw/' }).then((reg) => {
-    console.log('Scope is', reg.scope)
+  navigator.serviceWorker.register('/sw/dist/sw.js', { scope: '/sw/dist/' }).then(() => {
+    console.log('success')
   })
 }
 

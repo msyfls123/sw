@@ -1,4 +1,4 @@
-const req = new Request('https://day.ebichu.cc/api/1', { mode: 'cors' });
+const req = new Request('https://day.ebichu.cc/api/1', { mode: 'cors' })
 
 self.addEventListener('install', (ev) => {
   ev.waitUntil(
@@ -6,8 +6,7 @@ self.addEventListener('install', (ev) => {
       return cache.addAll([
         req,
         '/sw/app.js',
-        '/sw/index.html',
-      ])
+        '/sw/index.html'])
     })
   )
 })

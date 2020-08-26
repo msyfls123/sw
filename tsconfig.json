@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "es6",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "include": [
+    "./script/**/*.ts",
+    "./src/**/*.ts"
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  },
+}
