@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "esModuleInterop": true
   },
   "include": [
