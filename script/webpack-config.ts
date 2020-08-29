@@ -1,21 +1,28 @@
 import WorkboxPlugin from 'workbox-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as path from 'path'
+import webpack from 'webpack'
 
-const srcPath = path.join(__dirname, '../src')
-const outputPath = path.join(__dirname, '../dist')
+const basePath = path.dirname(__dirname)
+const srcPath = path.join(basePath, 'src')
+const outputPath = path.join(basePath, 'dist')
 
-export const config = {
+export const genConfig: () => webpack.Configuration = () => ({
+  mode: process.env.NODE_ENV || 'production',
   entry: {
     main: path.join(srcPath, 'app.ts')
   },
   output: {
     path: outputPath,
-    filename: '[name].js',
+    filename: '[name].[contenthash:6].js',
     publicPath: '/sw/dist/'
   },
   resolve: {
-    extensions: ['ts', 'js', 'tsx', 'jsx']
+    modules: [
+      srcPath,
+      path.join(basePath, 'node_modules')
+    ],
+    extensions: ['.ts', '.js', '.tsx', '.jsx']
   },
   module: {
     rules: [
@@ -35,4 +42,4 @@ export const config = {
       injectionPoint: '__WB_MANIFEST'
     })
   ]
-}
+})

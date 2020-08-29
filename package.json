@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts",
-    "compile": "ts-node -P ./tsconfig.json ./script/compile.ts",
-    "publish": "npm run compile && git checkout gh-pages && git add ./dist && git commit -m 'update page' && git push && git checkout -"
+    "build": "cross-env NODE_ENV=production ts-node -P ./tsconfig.json ./script/compile.ts",
+    "start": "cross-env NODE_ENV=development ts-node -P ./tsconfig.json ./script/compile.ts",
+    "publish": "npm run build && git checkout gh-pages && git add ./dist && git commit -m 'update page' && git push && git checkout -"
   },
   "repository": {
     "type": "git",
@@ -25,12 +26,14 @@
     "@babel/preset-typescript": "^7.10.4",
     "@types/html-webpack-plugin": "^3.2.3",
     "@types/webpack": "^4.41.21",
+    "@types/webpack-dev-server": "^3.11.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-typescript": "^7.0.0-alpha.19",
+    "cross-env": "^7.0.2",
     "eslint": "^7.7.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
@@ -38,8 +41,10 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "html-webpack-plugin": "^4.3.0",
+    "rimraf": "^3.0.2",
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
+    "webpack-dev-server": "^3.11.0",
     "workbox-precaching": "^5.1.3",
     "workbox-webpack-plugin": "^5.1.3"
   },
