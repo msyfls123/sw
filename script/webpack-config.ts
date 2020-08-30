@@ -1,6 +1,6 @@
 import WorkboxPlugin from 'workbox-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import * as path from 'path'
+import path from 'path'
 import webpack from 'webpack'
 
 const basePath = path.dirname(__dirname)

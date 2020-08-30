@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "none",
     "target": "es6",
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
