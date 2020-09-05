@@ -1,0 +1,27 @@
+{
+  "icons": [
+    {
+      "src": "/sw/dist/icon_192x192.444d74d04f78e7174fdd96871004b5ee.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/sw/dist/icon_128x128.6122c27c791cf2063ea800e708a87ddc.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/sw/dist/icon_96x96.97fcdc313d03917de657df18de2fa7ae.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Kimi PWA Page",
+  "short_name": "KimiPWA",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "To Boldly Go No One Has Gone Before!",
+  "background_color": "#389eac",
+  "theme_color": "#d6c0a2"
+}
