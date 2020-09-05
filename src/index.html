@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="hash" content="<%= compilation.getStats().hash %>">
+  <link rel="apple-touch-icon" href="<%= require('./img/icon.png') %>">
+  <link rel="apple-touch-icon" sizes="512x512" href="<%= require('./img/icon.png') %>">
 </head>
 <body>
   <h1>Welcome to my service-worker !!!</h1>
   <div id="main"></div>
+  <img src="<%= require('./img/icon.png') %>"/>
 </body>
 </html>

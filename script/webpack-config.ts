@@ -33,6 +33,15 @@ export const genConfig: () => Configuration = () => ({
       {
         test: /\.(j|t)sx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[contenthash].[ext]',
+          outputPath: 'img',
+          esModule: false,
+        },
       }
     ]
   },
@@ -51,7 +60,11 @@ export const genConfig: () => Configuration = () => ({
       icons: [
         {
           src: path.resolve('src/img/icon.png'),
-          sizes: [96, 128, 192] // multiple sizes
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        },
+        {
+          src: path.resolve('src/img/large.png'),
+          size: '1024x1024' // you can also use the specifications pattern
         },
       ]
     }),
