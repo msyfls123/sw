@@ -6,13 +6,13 @@ import { PrecacheEntry } from 'workbox-precaching/_types'
 interface Scope extends ServiceWorkerGlobalScope {
   __precacheManifest: PrecacheEntry[]
 }
-declare var self: Scope
-declare var __WB_MANIFEST: PrecacheEntry[]
+declare const self: Scope
+declare const __WB_MANIFEST: PrecacheEntry[]
 
 self.__precacheManifest = __WB_MANIFEST
 precacheAndRoute(self.__precacheManifest || [])
 
-self.addEventListener('install', event => {
+self.addEventListener('install', () => {
   self.skipWaiting();
 })
 
