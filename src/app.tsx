@@ -2,9 +2,11 @@ import React from 'react'
 import { render } from 'react-dom'
 import Root from './root'
 
-if ('serviceWorker' in navigator) {
+import './app.styl'
+
+if ('serviceWorker' in navigator && process.env.NODE_MODE === 'production') {
   navigator.serviceWorker.register('/sw/dist/sw.js', { scope: '/sw/dist/' }).then(() => {
-    console.log('success register sw.js')
+    console.log('success register sw.js!')
   })
 }
 

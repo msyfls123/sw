@@ -1,12 +1,23 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 
+import './Day.styl'
+
 const Day: FunctionComponent = () => {
   const [value, setValue] = useState<number | ''>('')
   const [data, setData] = useState<string | null>(null)
   useEffect(() => {
-    if (!value) { return }
+    if (!value) {
+      setData(null)
+      return
+    }
     let aborted = false
-    fetch(`https://day.ebichu.cc/api/${value}`)
+    fetch(`https://day.ebichu.cc/api/${value}`, { mode: 'cors' })
+      .catch((err) => {
+        if (!aborted) {
+          setData(err.toString())
+        }
+        throw err
+      })
       .then((res) => res.json())
       .then((res) => {
         if (!aborted) {
@@ -17,11 +28,11 @@ const Day: FunctionComponent = () => {
   }, [value])
   return (
     <div>
-      <label>
-        输入日期：
+      <label className="date-input">
+        <span>输入日期：</span>
         <input
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => setValue(Number(e.target.value))}
           placeholder="1 - 365"
           type="number"
         />

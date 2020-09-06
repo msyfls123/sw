@@ -4,7 +4,7 @@ const Day = lazy(() => import('./components/Day'))
 const Root: FunctionComponent = () => {
   return (
     <div>
-      <h1>A New Day</h1>
+      <h2>A New Day</h2>
       <Suspense fallback={<>loading</>}>
         <Day/>
       </Suspense>

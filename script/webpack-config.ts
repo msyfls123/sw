@@ -2,6 +2,7 @@
 import WorkboxPlugin from 'workbox-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import WebpackPwaManifest from 'webpack-pwa-manifest'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import path from 'path'
 import webpack, { Configuration } from 'webpack'
 
@@ -18,7 +19,7 @@ export const genConfig: () => Configuration = () => ({
   },
   output: {
     path: outputPath,
-    filename: '[name].[contenthash:6].js',
+    filename: '[name].[contenthash:8].js',
     publicPath: '/sw/dist/'
   },
   resolve: {
@@ -38,14 +39,21 @@ export const genConfig: () => Configuration = () => ({
         test: /\.(png|jpe?g|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[contenthash].[ext]',
+          name: '[name].[contenthash:8].[ext]',
           outputPath: 'img',
           esModule: false,
         },
-      }
+      },
+      {
+        test: /\.styl$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
+      },
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css'
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -73,10 +81,13 @@ export const genConfig: () => Configuration = () => ({
       title: 'service-worker!!!',
       minify: true
     }),
-    new WorkboxPlugin.InjectManifest({
-      swSrc: path.join(srcPath, 'sw.ts'),
-      injectionPoint: '__WB_MANIFEST'
-    })
+    ...(isProduction
+      ? [new WorkboxPlugin.InjectManifest({
+        swSrc: path.join(srcPath, 'sw.ts'),
+        injectionPoint: '__WB_MANIFEST'
+      })]
+      : []
+    ),
   ],
   optimization: {
     chunkIds: isProduction ? 'natural' : 'named',
@@ -84,7 +95,7 @@ export const genConfig: () => Configuration = () => ({
       cacheGroups: {
         defaultVendors: {
           name: 'vendor',
-          filename: '[name].[contenthash:6].js',
+          filename: '[name].[contenthash:8].js',
           test: new RegExp('[\\/]node_modules[\\/]'),
           chunks: 'initial',
           enforce: true
