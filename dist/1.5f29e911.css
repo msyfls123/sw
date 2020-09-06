@@ -1,0 +1,18 @@
+.date-input {
+  display: flex;
+  align-items: center;
+}
+.date-input,
+.date-input input {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.date-input span {
+  flex: none;
+}
+.date-input input {
+  border: none;
+  outline: none;
+  padding: 0 10px;
+}
+
