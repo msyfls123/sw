@@ -8,7 +8,7 @@
     "lint": "eslint . --ext .ts",
     "build": "cross-env NODE_ENV=production ts-node -P ./tsconfig.json ./script/compile.ts",
     "start": "cross-env NODE_ENV=development ts-node -P ./tsconfig.json ./script/compile.ts",
-    "copyDist": "mv dist out && git checkout gh-pages && rm -r dist/ && mv out dist",
+    "copyDist": "mv dist out && git checkout gh-pages && git pull --rebase origin gh-pages && rm -r dist/ && mv out dist",
     "pushGitHubPages": "git add ./dist && git commit -m \"update pages: $(date '+%F %T')\" && git push",
     "publish": "npm run build && npm run copyDist && npm run pushGitHubPages && git checkout -"
   },
