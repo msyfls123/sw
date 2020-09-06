@@ -84,7 +84,8 @@ export const genConfig: () => Configuration = () => ({
     ...(isProduction
       ? [new WorkboxPlugin.InjectManifest({
         swSrc: path.join(srcPath, 'sw.ts'),
-        injectionPoint: '__WB_MANIFEST'
+        injectionPoint: '__WB_MANIFEST',
+        exclude: [/\.(?:png|jpg|jpeg|svg)$/]
       })]
       : []
     ),
