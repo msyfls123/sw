@@ -24,6 +24,9 @@
     "node": true,
     "es6": true
   },
+  "globals": {
+    "__WB_MANIFEST": true
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],

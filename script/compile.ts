@@ -6,7 +6,7 @@ import rimraf from 'rimraf'
 
 const isDev = process.env.NODE_ENV === 'development'
 
-function compileCb (err, stat) {
+const compileCb: webpack.ICompiler.Handler = (err, stat) => {
   if (err) {
     console.error(JSON.stringify(err, null, 2))
   } else {

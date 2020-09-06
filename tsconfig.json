@@ -2,12 +2,13 @@
   "compilerOptions": {
     "module": "none",
     "target": "es6",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "WebWorker"],
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
     "./script/**/*.ts",
